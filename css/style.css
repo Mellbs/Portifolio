@@ -1,0 +1,353 @@
+* {  /* Seleciona todos os elementos da página */
+    margin: 0;
+    padding: 0; /* Remove margens e preenchimentos padrão */
+    box-sizing: border-box;
+} 
+
+:root { /* Define variáveis CSS para cores e estilos */
+    --azul-escuro: #003d82;
+    --azul-claro: #0066cc; /*var(--azul-claro); */
+    --azul-muito-claro: #e6f2ff;
+    --azul-hover: #004fa3;
+    --text-dark: #333;
+    --text-light: #666;
+    --border-color: #ddd;
+}
+
+html,
+body {
+    min-height: 100%; /* Define que a altura mínima da página será 100% da tela. / Ocupar a tela toda /
+Manter footer no final / centralizar conteúdo verticalmente*/
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define a fonte para o corpo da página */
+    line-height: 1.6; /* Define a altura da linha para melhorar a legibilidade */
+    color: var(--text-dark); /* Define a cor do texto usando a variável CSS */
+     /* Define a cor de fundo da página */
+    background-repeat: no-repeat; /* Evita que a imagem de fundo se repita */
+    background-position: center; /* Centraliza a imagem de fundo */
+    background-size: cover; /* Faz com que a imagem de fundo cubra toda a área disponível */
+    background-attachment: fixed; /* Faz com que a imagem de fundo fique fixa durante a rolagem */
+    display: flex; /* Define o layout como flexbox para facilitar o alinhamento e a distribuição dos elementos */
+    flex-direction: column; /* Define a direção dos elementos como coluna para empilhá-los verticalmente */
+}
+
+/* ===== HEADER ===== */
+
+header {
+    background-color: #060114;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(54, 36, 118, 0.1); /* Adiciona uma sombra sutil para dar profundidade ao header */
+
+    position: sticky; /* Faz com que o header fique fixo no topo da página durante a rolagem */
+    top: 0; /* Define a posição do header no topo da página */
+    z-index: 100; /* Garante que o header fique acima de outros elementos da página */
+}
+
+.header-container {
+    max-width: 1200px; /* Define a largura máxima do container para evitar que o conteúdo fique muito esticado em telas grandes */ /* Centraliza o container horizontalmente */
+
+    margin: 0 auto;
+
+    padding: 0 20px;
+
+    display: flex; /* Define o layout como flexbox para facilitar o alinhamento e a distribuição dos elementos */
+    justify-content: space-between; /* Distribui os elementos do header com espaço entre eles */
+    align-items: center; /* Alinha os elementos do header verticalmente ao centro */
+
+    gap: 20px; /* Adiciona um espaço entre os elementos do header para melhorar a legibilidade e a estética */
+}
+
+.logo {
+    color: white;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    text-decoration: none; /* Remove o sublinhado do link da logo */
+}
+
+.logo:hover {
+    color: #910000;
+}
+
+
+nav ul, nav li {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    color: white;
+    list-style: none; /* Remove os marcadores da lista para os itens de navegação */
+
+    flex-wrap: wrap; /* Permite que os itens de navegação quebrem para a próxima linha em telas menores, melhorando a responsividade */
+}
+
+nav a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    padding: 8px 12px;
+
+    border-radius: 5px;
+
+    transition: 0.3s; /* Adiciona uma transição suave para as mudanças de estilo ao passar o mouse sobre os links de navegação */
+}
+
+nav a:hover { /* Define o estilo para os links de navegação quando o mouse passa sobre eles */
+    color: #910000;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* ===== MAIN ===== */
+
+main {
+    flex: 1; /* Faz com que o main ocupe o espaço disponível entre o header e o footer, garantindo que o footer fique no final da página mesmo quando o conteúdo for curto */
+
+    background: linear-gradient(rgb(5, 4, 20), rgb(63, 61, 65));
+
+    display: flex; /* Define o layout como flexbox para facilitar o alinhamento e a distribuição dos elementos dentro do main */
+    flex-direction: column; /* Define a direção dos elementos como coluna para empilhá-los verticalmente */
+    align-items: center; /* Alinha os elementos do main verticalmente ao centro, garantindo que o conteúdo fique centralizado mesmo em telas maiores */
+
+    padding: 60px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.container-prinicipal {
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px;
+}
+
+.container-habilidades {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: white;
+    background-color: #2e2a3d;
+    border-radius: 20px; /* Adiciona bordas arredondadas para um visual mais suave e moderno */
+     border: 1px solid rgba(255, 255, 255, 0.2); /* Adiciona uma borda sutil para destacar a seção de habilidades */
+    padding: 30px;
+    backdrop-filter: blur(10px); /* Adiciona um efeito de desfoque ao fundo para criar um visual mais moderno e elegante */
+    transition: 0.3s ease; /* Adiciona uma transição suave para as mudanças de estilo ao passar o mouse sobre a seção de habilidades, melhorando a interatividade e a experiência do usuário */
+
+}
+
+.container-habilidades:hover {
+    transform: scale(1.02); /* Aumenta ligeiramente o tamanho da seção de habilidades para criar um efeito de destaque e interatividade quando o mouse passa sobre ela */
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra mais pronunciada para dar um efeito de profundidade e destaque à seção de habilidades quando o mouse passa sobre ela, melhorando a estética e a experiência do usuário */
+}
+
+.container-habilidades h2 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+
+    color: #8de2f5;
+}
+
+.container-habilidades ul {
+    margin-left: 20px;
+}
+
+.container-habilidades li {
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+span { /* Define o estilo para os elementos span dentro do título principal para destacar a parte "Full Stack" */
+    color: #910000;
+}
+
+.section-title {
+    font-size: 42px;
+    color: white;
+
+    margin-bottom: 25px;
+
+    font-weight: bold;
+}
+
+.container p {
+    color: white;
+    font-size: 18px;
+}
+
+/* ===== BOTÕES ===== */
+
+.btn {
+    display: inline-block; /* Define o botão como um elemento inline-block para permitir que ele tenha dimensões e margens, mas ainda se comporte como um elemento de linha, facilitando a centralização e o alinhamento com outros elementos. */
+
+    padding: 12px 24px;
+
+    background: linear-gradient(
+        135deg,
+        #910000,
+        rgb(59, 4, 4)
+    );
+
+    color: white;
+
+    text-decoration: none;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    
+    color: white;
+    background: rgba(142, 24, 24, 0.7);
+
+    box-shadow: 0 5px 15px rgba(0, 61, 130, 0.4);
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+    background-color: rgba(207, 90, 0, 0.95);
+
+    color: white;
+
+    padding: 40px 20px;
+}
+
+.footer-content {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(250px, 1fr)
+    );
+
+    gap: 30px;
+
+    text-align: center;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 12px;
+
+    color: white;
+}
+
+.footer-section p {
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+.footer-contact a {
+    color: white;
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.footer-contact a:hover {
+    color: #e6f2ff;
+}
+
+.footer-bottom {
+    text-align: center;
+
+    margin-top: 30px;
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+    font-size: 14px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+@media (max-width: 768px) {
+
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .section-title {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .container p {
+        text-align: center;
+        font-size: 16px;
+    }
+
+    main {
+        padding: 40px 20px;
+    }
+
+    .btn {
+        width: 100%;
+
+        margin-bottom: 10px;
+
+        text-align: center;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .logo {
+        font-size: 22px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .container p {
+        font-size: 15px;
+    }
+
+    footer {
+        padding: 30px 15px;
+    }
+}

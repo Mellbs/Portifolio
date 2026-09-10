@@ -1,563 +1,668 @@
-* {  /* Seleciona todos os elementos da página */
+/* =========================================================
+   RESET
+========================================================= */
+* {
     margin: 0;
-    padding: 0; /* Remove margens e preenchimentos padrão */
+    padding: 0;
     box-sizing: border-box;
-} 
+}
 
-:root { /* Define variáveis CSS para cores e estilos */
-    --azul-escuro: #003d82;
-    --azul-claro: #0066cc; /*var(--azul-claro); */
-    --azul-muito-claro: #e6f2ff;
-    --azul-hover: #004fa3;
-    --text-dark: #333;
-    --text-light: #666;
-    --border-color: #ddd;
+/* =========================================================
+   DESIGN TOKENS
+========================================================= */
+:root {
+    /* base */
+    --bg: #0a0c11;
+    --surface: #141822;
+    --surface-2: #1b202c;
+    --border: rgba(255, 255, 255, 0.08);
+
+    /* text */
+    --ink: #f3f4f7;
+    --ink-muted: #9aa0b0;
+
+    /* accent — wine red (identity) + teal (support) */
+    --wine: #a3213f;
+    --wine-dark: #6e1229;
+    --teal: #2dd4bf;
+
+    /* type */
+    --font-display: 'Sora', 'Segoe UI', sans-serif;
+    --font-body: 'Inter', 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --radius: 14px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 
 html,
 body {
-    min-height: 100%; /* Define que a altura mínima da página será 100% da tela. / Ocupar a tela toda /
-Manter footer no final / centralizar conteúdo verticalmente*/
+    min-height: 100%;
     overflow-x: hidden;
-    background-color: #000;
+    background-color: var(--bg);
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define a fonte para o corpo da página */
-    line-height: 1.6; /* Define a altura da linha para melhorar a legibilidade */
-    color: var(--text-dark); /* Define a cor do texto usando a variável CSS */
-     /* Define a cor de fundo da página */
-    background-repeat: no-repeat; /* Evita que a imagem de fundo se repita */
-    background-position: center; /* Centraliza a imagem de fundo */
-    background-size: cover; /* Faz com que a imagem de fundo cubra toda a área disponível */
-    background-attachment: fixed; /* Faz com que a imagem de fundo fique fixa durante a rolagem */
-    display: flex; /* Define o layout como flexbox para facilitar o alinhamento e a distribuição dos elementos */
-    flex-direction: column; /* Define a direção dos elementos como coluna para empilhá-los verticalmente */
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
 }
 
-/* ===== HEADER ===== */
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--wine);
+    color: white;
+    padding: 12px 18px;
+    z-index: 2000;
+    border-radius: 0 0 8px 0;
+}
 
+.skip-link:focus {
+    left: 0;
+}
+
+a {
+    color: inherit;
+}
+
+:focus-visible {
+    outline: 2px solid var(--teal);
+    outline-offset: 3px;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
 header {
     position: fixed;
-
     top: 0;
     left: 0;
-
     width: 100%;
-
-    padding: 15px 0;
-
-    background: rgba(6, 1, 20, 0.9);
-
-    backdrop-filter: blur(10px);
-
-    box-shadow: 0 2px 10px rgba(54, 36, 118, 0.2);
-
+    padding: 18px 0;
+    background: rgba(8, 6, 14, 0.75);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
     z-index: 1000;
 }
 
-
 .header-container {
-    max-width: 1200px; /* Define a largura máxima do container para evitar que o conteúdo fique muito esticado em telas grandes */ /* Centraliza o container horizontalmente */
-
+    max-width: 1200px;
     margin: 0 auto;
-
-    padding: 0 20px;
-
-    display: flex; /* Define o layout como flexbox para facilitar o alinhamento e a distribuição dos elementos */
-    justify-content: space-between; /* Distribui os elementos do header com espaço entre eles */
-    align-items: center; /* Alinha os elementos do header verticalmente ao centro */
-
-    gap: 20px; /* Adiciona um espaço entre os elementos do header para melhorar a legibilidade e a estética */
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
 }
 
 .logo {
+    font-family: var(--font-display);
     color: white;
-
-    font-size: 28px;
-    font-weight: bold;
-
-    text-decoration: none; /* Remove o sublinhado do link da logo */
+    font-size: 22px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: -0.02em;
 }
 
-.logo:hover {
-    color: #910000;
+.logo-dot {
+    color: var(--wine);
 }
 
+.logo:hover .logo-dot {
+    color: var(--teal);
+}
 
-nav ul, nav li {
+nav ul {
     display: flex;
     align-items: center;
-    gap: 25px;
-    color: white;
-    list-style: none; /* Remove os marcadores da lista para os itens de navegação */
-
-    flex-wrap: wrap; /* Permite que os itens de navegação quebrem para a próxima linha em telas menores, melhorando a responsividade */
+    gap: 8px;
+    list-style: none;
 }
 
 nav a {
-    color: white;
-
-    text-decoration: none;
-
-    font-size: 16px;
-    font-weight: 500;
-
-    padding: 8px 12px;
-
-    border-radius: 5px;
-
-    transition: 0.3s; /* Adiciona uma transição suave para as mudanças de estilo ao passar o mouse sobre os links de navegação */
-}
-
-nav a:hover { /* Define o estilo para os links de navegação quando o mouse passa sobre eles */
-    color: #910000;
-    background: rgba(255, 255, 255, 0.2);
-}
-
-
-/* ===== MAIN ===== */
-
-main {
-    flex: 1; /* Faz com que o main ocupe o espaço disponível entre o header e o footer, garantindo que o footer fique no final da página mesmo quando o conteúdo for curto */
-    align-items: center; /* Alinha os elementos do main verticalmente ao centro, garantindo que o conteúdo fique centralizado mesmo em telas maiores */
-    background: linear-gradient(rgb(5, 4, 20), rgb(63, 61, 65));
-    padding-bottom: 0;
-    display: flex; /* Define o layout como flexbox para facilitar o alinhamento e a distribuição dos elementos dentro do main */
-    flex-direction: column; /* Define a direção dos elementos como coluna para empilhá-los verticalmente */
-     /* Alinha os elementos do main verticalmente ao centro, garantindo que o conteúdo fique centralizado mesmo em telas maiores */
-
-    padding: 60px 20px;
-    /* padding: 120px 0 0 0; */
-}
-
-    
-
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-
-.container-prinicipal {
-    width: 100%;
-    max-width: 1200px;
-    margin: 60px;
-}
-
-.container-habilidades {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    color: white;
-    background-color: #2e2a3d;
-    border-radius: 20px; /* Adiciona bordas arredondadas para um visual mais suave e moderno */
-     border: 1px solid rgba(255, 255, 255, 0.2); /* Adiciona uma borda sutil para destacar a seção de habilidades */
-    padding: 30px;
-    backdrop-filter: blur(10px); /* Adiciona um efeito de desfoque ao fundo para criar um visual mais moderno e elegante */
-    transition: 0.3s ease; /* Adiciona uma transição suave para as mudanças de estilo ao passar o mouse sobre a seção de habilidades, melhorando a interatividade e a experiência do usuário */
-
-}
-
-.container-habilidades:hover {
-    transform: scale(1.02); /* Aumenta ligeiramente o tamanho da seção de habilidades para criar um efeito de destaque e interatividade quando o mouse passa sobre ela */
-
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra mais pronunciada para dar um efeito de profundidade e destaque à seção de habilidades quando o mouse passa sobre ela, melhorando a estética e a experiência do usuário */
-}
-
-.container-habilidades h2 {
-    margin-top: 25px;
-    margin-bottom: 10px;
-
-    color: #0389a7;
-}
-
-.container-habilidades ul {
-    margin-left: 20px;
-}
-
-.container-habilidades li {
-    margin-bottom: 8px;
-    font-size: 18px;
-}
-
-.container-projetos {
-    width: 100%;
-    max-width: 1200px;
-    margin: 60px;
-}
-
-.container-projetos{
-    padding: 50px;
-    background-color: #111;
-}
-
-.row{
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.col-md-6{
-    background-color: #1e1e1e;
-    color: white;
-    padding: 25px;
-    border-radius: 15px;
-    width: 500px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.col-md-6 h2{
-    margin-bottom: 15px;
-}
-
-.col-md-6 p{
-    line-height: 1.6;
-}
-
-.certificacoes{
-    width: 100%;
-    padding: 100px 0;
-    margin-bottom: 0;
-    padding-bottom: 0;
-    background: linear-gradient(180deg, #170101, #2d2b2b);
-}
-
-.certificado:last-child{
-    margin-bottom: 0 !important;
-}
-
-.titulo-certificacoes{
-    text-align: center;
-    color: white;
-    font-size: 42px;
-    margin-bottom: 70px;
-    font-weight: bold;
-}
-
-.timeline{
-    width: 100%;
-    margin: 0;
-    margin-bottom: 0 !important;
-    display: flex;
-    flex-direction: column;
-    gap: 35px;
-}
-
-.certificado{
-    width: 100%;
-
-    display: flex;
-    align-items: stretch;
-    gap: 0;
-}
-
-.linha{
-    width: 10px;
-    min-width: 10px;
-
-    background: linear-gradient(to bottom, #014c65, #0077ff);
-}
-
-.conteudo-certificado{
-    width: 100%;
-
-    background: rgba(89, 34, 34, 0.05);
-
-    backdrop-filter: blur(12px);
-
-    padding: 45px 60px;
-
-    color: white;
-
-    transition: 0.3s ease;
-
-    border-top: 1px solid rgba(255,255,255,0.08);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-.conteudo-certificado:hover{
-    background: rgba(255,255,255,0.08);
-
-    border-top: 1px solid rgba(0,191,255,0.3);
-    border-bottom: 1px solid rgba(0,191,255,0.3);
-}
-
-.tag{
     display: inline-block;
-
-    padding: 8px 18px;
-
-    background: linear-gradient(90deg, #0d5fbd, #23a2cd);
-
-    border-radius: 30px;
-
-    font-size: 14px;
-
-    font-weight: bold;
-
-    margin-bottom: 18px;
+    color: var(--ink-muted);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: color 0.25s ease, background 0.25s ease;
 }
 
-.conteudo-certificado h2{
-    margin-bottom: 18px;
-
-    font-size: 30px;
-
-    font-weight: bold;
+nav a:hover,
+nav a.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.08);
 }
 
-.conteudo-certificado p{
-    line-height: 1.8;
-
-    margin-bottom: 25px;
-
-    color: #dcdcdc;
-
-    font-size: 17px;
+nav a.nav-cta {
+    color: white;
+    background: var(--wine);
 }
 
-.btn-certificado{
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    background: white;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
+nav a.nav-cta:hover {
+    background: var(--wine-dark);
 }
 
-.btn-certificado:hover{
-    transform: scale(1.05);
-}
-
-
-.btn{
-    padding: 10px 20px;
-    border: none;
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid var(--border);
     border-radius: 8px;
     cursor: pointer;
-    background-color: #ffffff;
-    font-weight: bold;
 }
 
-span { /* Define o estilo para os elementos span dentro do título principal para destacar a parte "Full Stack" */
-    color: #910000;
+.nav-toggle span {
+    display: block;
+    height: 2px;
+    width: 20px;
+    margin: 0 auto;
+    background: white;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================================================
+   MAIN / SHARED SECTION STYLES
+========================================================= */
+main {
+    flex: 1;
+    background: radial-gradient(ellipse at top, #12141d 0%, #05060a 62%);
+}
+
+.section-header {
+    max-width: 700px;
+    margin: 0 auto 50px;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.eyebrow,
+.eyebrow-role {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--teal);
+    margin-bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.eyebrow-role .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.15);
+}
+
+.section-header h2 {
+    font-family: var(--font-display);
+    font-size: 34px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.01em;
+}
+
+section {
+    padding: 100px 0;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+.hero {
+    padding: 170px 24px 110px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-inner {
+    max-width: 760px;
+    text-align: left;
 }
 
 .section-title {
-    font-size: 42px;
+    font-family: var(--font-display);
+    font-size: 48px;
+    line-height: 1.15;
     color: white;
-
-    margin-bottom: 25px;
-
-    font-weight: bold;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 18px 0 24px;
 }
 
-.container p {
-    color: white;
+.section-title span {
+    color: var(--wine);
+}
+
+.hero-text {
     font-size: 18px;
+    color: var(--ink-muted);
+    max-width: 62ch;
+    margin-bottom: 36px;
 }
 
-/* ===== BOTÕES ===== */
-
-.btn {
-    display: inline-block; /* Define o botão como um elemento inline-block para permitir que ele tenha dimensões e margens, mas ainda se comporte como um elemento de linha, facilitando a centralização e o alinhamento com outros elementos. */
-
-    padding: 12px 24px;
-
-    background: linear-gradient(
-        135deg,
-        #910000,
-        rgb(59, 4, 4)
-    );
-
-    color: white;
-
-    text-decoration: none;
-
-    border: none;
-    border-radius: 8px;
-
-    cursor: pointer;
-
-    font-size: 15px;
-    font-weight: bold;
-
-    transition: 0.3s;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    
-    color: white;
-    background: rgba(142, 24, 24, 0.7);
-
-    box-shadow: 0 5px 15px rgba(0, 61, 130, 0.4);
-}
-
-/* ===== FOOTER ===== */
-
-.footer{
-    width: 100%;
-
-    background-color: #000;
-
-    color: white;
-
-    text-align: center;
-
-    padding: 70px 20px;
-
-    border-top: none;
-
-    margin-top: -5px;
-}
-
-.footer h2{
-    font-size: 42px;
-
-    margin-bottom: 40px;
-
-    font-weight: bold;
-}
-
-.icones-contato{
+.hero-actions {
     display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 25px;
-
     flex-wrap: wrap;
+    gap: 16px;
 }
 
-.icone-card{
-    width: 80px;
-    height: 80px;
-
-    display: flex;
-
-    justify-content: center;
-
+/* =========================================================
+   BUTTONS
+========================================================= */
+.btn {
+    display: inline-flex;
     align-items: center;
-
-    border-radius: 20px;
-
+    gap: 10px;
+    padding: 13px 26px;
     text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
 
-    background: rgba(255,255,255,0.05);
-
-    border: 1px solid rgba(255,255,255,0.08);
-
-    backdrop-filter: blur(10px);
-
-    transition: 0.3s ease;
-
-    font-size: 32px;
-
+.btn-primary {
+    background: var(--wine);
     color: white;
 }
 
-.icone-card:hover{
-    transform: translateY(-8px) scale(1.05);
-
-    background: linear-gradient(
-        135deg,
-        #910000,
-        rgb(59, 4, 4)
-    );
-
-    box-shadow: 0 10px 25px rgba(145,0,0,0.4);
+.btn-primary:hover {
+    background: var(--wine-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(163, 33, 63, 0.35);
 }
 
-.copyright{
-    margin-top: 50px;
+.btn-ghost {
+    background: transparent;
+    color: white;
+    border: 1px solid var(--border);
+}
 
-    color: #888;
+.btn-ghost:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+    transform: translateY(-2px);
+}
 
+/* =========================================================
+   SKILLS
+========================================================= */
+.skills-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 26px;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.skill-card:hover {
+    border-color: rgba(45, 212, 191, 0.35);
+    transform: translateY(-4px);
+}
+
+.skill-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(163, 33, 63, 0.15);
+    color: var(--wine);
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+
+.skill-card h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: white;
+    margin-bottom: 14px;
+}
+
+.skill-card ul {
+    list-style: none;
+}
+
+.skill-card li {
     font-size: 15px;
+    color: var(--ink-muted);
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 10px;
 }
-/* ===== RESPONSIVIDADE ===== */
 
-@media (max-width: 768px) {
+.skill-card li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+}
 
-    .titulo-certificacoes{
-        font-size: 32px;
-    }
+/* =========================================================
+   PROJECTS
+========================================================= */
+.projects-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
 
-    .conteudo-certificado{
-        padding: 30px 25px;
-    }
+.project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 34px;
+    display: flex;
+    flex-direction: column;
+}
 
-    .conteudo-certificado h2{
-        font-size: 24px;
-    }
+.project-card h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: white;
+    margin-bottom: 14px;
+}
 
-    .header-container {
-        flex-direction: column;
-        text-align: center;
+.project-card p {
+    color: var(--ink-muted);
+    font-size: 15px;
+    line-height: 1.75;
+    margin-bottom: 20px;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.tech-tags span {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--teal);
+    background: rgba(45, 212, 191, 0.1);
+    border: 1px solid rgba(45, 212, 191, 0.25);
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.project-link {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+    align-self: flex-start;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--wine);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.project-link:hover {
+    color: var(--teal);
+    border-color: var(--teal);
+}
+
+/* =========================================================
+   CERTIFICATIONS
+========================================================= */
+.cert-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.cert-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--wine);
+    border-radius: 10px;
+    padding: 26px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.cert-card:hover {
+    transform: translateY(-4px);
+    border-left-color: var(--teal);
+}
+
+.cert-card .tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-bottom: 12px;
+}
+
+.cert-card h3 {
+    font-family: var(--font-display);
+    font-size: 17px;
+    color: white;
+    margin-bottom: 18px;
+    line-height: 1.4;
+}
+
+.cert-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--teal);
+    text-decoration: none;
+}
+
+.cert-link:hover {
+    color: white;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.footer {
+    width: 100%;
+    background: #06070a;
+    border-top: 1px solid var(--border);
+    color: white;
+    text-align: center;
+    padding: 90px 24px 60px;
+}
+
+.footer h2 {
+    font-family: var(--font-display);
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.footer-text {
+    color: var(--ink-muted);
+    margin-bottom: 40px;
+}
+
+.icones-contato {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.icone-card {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+    text-decoration: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+    font-size: 22px;
+    color: white;
+}
+
+.icone-card:hover {
+    transform: translateY(-4px);
+    background: var(--wine);
+    border-color: var(--wine);
+}
+
+.copyright {
+    color: #6b7080;
+    font-size: 14px;
+}
+
+/* =========================================================
+   RESPONSIVENESS
+========================================================= */
+@media (max-width: 860px) {
+    nav {
+        position: fixed;
+        top: 68px;
+        left: 0;
+        width: 100%;
+        background: rgba(8, 6, 14, 0.97);
+        border-bottom: 1px solid var(--border);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
     }
 
     nav ul {
-        justify-content: center;
-        gap: 10px;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 24px 20px;
+        gap: 4px;
+    }
+
+    nav a {
+        width: 100%;
+    }
+
+    nav.open {
+        max-height: 400px;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 140px 20px 80px;
     }
 
     .section-title {
-        font-size: 30px;
-        text-align: center;
+        font-size: 32px;
     }
 
-    .container p {
-        text-align: center;
+    .hero-text {
         font-size: 16px;
     }
 
-    main {
-        padding: 40px 20px;
+    section {
+        padding: 70px 0;
+    }
+
+    .section-header h2 {
+        font-size: 26px;
+    }
+
+    .footer h2 {
+        font-size: 26px;
     }
 
     .btn {
         width: 100%;
-
-        margin-bottom: 10px;
-
-        text-align: center;
+        justify-content: center;
     }
 
-    .footer-content {
-        grid-template-columns: 1fr;
-
-        text-align: center;
+    .hero-actions {
+        flex-direction: column;
     }
 }
 
 @media (max-width: 480px) {
-
     .logo {
-        font-size: 22px;
-    }
-
-    nav a {
-        font-size: 14px;
+        font-size: 19px;
     }
 
     .section-title {
-        font-size: 24px;
+        font-size: 26px;
     }
 
-    .container p {
-        font-size: 15px;
-    }
-
-    footer {
-        padding: 30px 15px;
+    .icone-card {
+        width: 52px;
+        height: 52px;
+        font-size: 19px;
     }
 }

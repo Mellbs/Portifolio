@@ -1,290 +1,288 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portifólio Mell</title>
+    <title>Mell Baptista Scabio | Desenvolvedora Full Stack</title>
+    <meta name="description" content="Portfólio de Mell Baptista Scabio, desenvolvedora Full Stack com foco em HTML, CSS, JavaScript e PHP. Confira projetos, habilidades e certificações.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
-    <link href="assets/bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
+
+    <a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+
     <header>
         <div class="header-container">
-            <a href="index.html" class="logo">Mell Baptista Scabio</a>
-            <nav>
+            <a href="index.html" class="logo">Mell<span class="logo-dot">.</span>dev</a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav id="navMenu">
                 <ul>
-                    <li><a href="#">Sobre Mim</a></li>
+                    <li><a href="#sobre">Sobre mim</a></li>
                     <li><a href="#habilidades">Habilidades</a></li>
                     <li><a href="#projetos">Projetos</a></li>
                     <li><a href="#certificacoes">Certificações</a></li>
-                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="#contato" class="nav-cta">Contato</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
+    <main id="conteudo">
 
-        <div class="container-prinicipal">
-            <h1 class="section-title">Olá, eu sou a Mell <br> Desenvolvedora <span>Full Stack</span></h1>
-            <p style="font-size: 18px; color: white; margin-bottom: 30px;">Sou desenvolvedora Full Stack com formação
-                técnica em Análise e Desenvolvimento de Sistemas e atualmente graduanda em Engenharia de Software. Tenho
-                grande interesse no desenvolvimento web, com foco em HTML e CSS, buscando criar interfaces modernas,
-                organizadas e funcionais. Sou apaixonada por tecnologia, desenvolvimento de projetos e aprendizado
-                contínuo, sempre em busca de novas soluções e desafios que contribuam para minha evolução profissional e
-                criativa.</p>
+        <section id="sobre" class="hero">
+            <div class="hero-inner">
+                <p class="eyebrow-role"><span class="dot"></span>Disponível para novas oportunidades</p>
 
-            <div style="margin-bottom: 40px;">
-                <a href="assets/Mell_Curriculo.pdf" download class="btn" style="margin-right: 20px;">Baixar Currículo</a>
-            </div>
-        </div>
+                <h1 class="section-title">
+                    Olá, eu sou a Mell.<br>
+                    Construo interfaces web com <span>cuidado e propósito.</span>
+                </h1>
 
-        <div id="habilidades" class="container-habilidades">
+                <p class="hero-text">
+                    Sou desenvolvedora Full Stack, com formação técnica em Análise e Desenvolvimento de Sistemas
+                    e atualmente graduanda em Engenharia de Software. Gosto de transformar ideias em interfaces
+                    modernas, organizadas e funcionais — e estou sempre em busca de novos desafios para evoluir
+                    como profissional.
+                </p>
 
-            <h1 style="text-align: center; color: white; margin-bottom: 20px; font-weight: bold; ">Habilidades</h1>
-
-            <h2>💻 Desenvolvimento Web</h2>
-            <br>
-            <ul>
-                <li>Conhecimento em HTML, CSS, JavaScript e PHP</li>
-                <li>Criação de interfaces modernas, responsivas e funcionais</li>
-                <li>Interesse contínuo em desenvolvimento Full Stack</li>
-            </ul>
-            <br>
-            <h2>🗄️ Banco de Dados</h2>
-            <br>
-            <ul>
-                <li>Conhecimento básico em MySQL</li>
-                <li>Noções de manipulação e organização de banco de dados</li>
-            </ul>
-            <br>
-            <h2>📚 Ferramentas e Tecnologias</h2>
-            <br>
-            <ul>
-                <li>Microsoft Word</li>
-                <li>Microsoft Excel</li>
-                <li>Microsoft PowerPoint</li>
-                <li>Canva para criação de conteúdos visuais e apresentações</li>
-            </ul>
-            <br>
-            <h2>⌨️ Habilidades Profissionais</h2>
-            <br>
-            <ul>
-                <li>Rapidez e agilidade na digitação e escrita</li>
-                <li>Facilidade de aprendizado</li>
-                <li>Organização e atenção aos detalhes</li>
-                <li>Criatividade e desenvolvimento de novos projetos</li>
-            </ul>
-        </div>
-        <br>
-        <div id="projetos" class="container-projetos">
-
-            <h1 style="text-align: center; color: white; margin-bottom: 20px; font-weight: bold; ">Projetos</h1>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2>Projeto 1: Site de Certificado Digital</h2>
-                        <p>Desenvolvimento de um site de certificado digital utilizando HTML, CSS e JavaScript para
-                            facilitar o agendamento de criação/renovação de certificados. O usuário preenche os dados e
-                            envia direto para o whatsapp da empresa com uma mensagem pré-definida. O site é responsivo e
-                            possui um design moderno e atraente.</p>
-                        <br>
-                        <button class="btn" style="margin-right: 20px;"
-                            onclick="window.open('https://certificado-digital-rho.vercel.app/', '_blank')">Acessar
-                            Projeto</button>
-                    </div>
-                    <div class="col-md-6">
-                        <h2>Projeto 2: Site de vendas Mini Caseirinho</h2>
-                        <p>Desenvolvimento de um site de vendas para uma loja de produtos caseiros utilizando HTML, CSS
-                            e JavaScript. O site permite a navegação pelos produtos, adição ao carrinho e finalização da
-                            compra. O usuário escolhe o. produto, escolhe o meio de pagamento e de entrega e envia
-                            direto para o whatsapp do vendedor com uma mensagem pré-definida. O design é moderno e
-                            responsivo, proporcionando uma boa experiência ao usuário.</p>
-                        <br>
-                        <button class="btn" style="margin-right: 20px;"
-                            onclick="window.open('https://mini-caseirinho.vercel.app/index.html', '_blank')">Acessar
-                            Projeto</button>
-                    </div>
+                <div class="hero-actions">
+                    <a href="assets/Mell_Curriculo.pdf" download class="btn btn-primary">
+                        <i class="fa-solid fa-arrow-down"></i> Baixar currículo
+                    </a>
+                    <a href="#projetos" class="btn btn-ghost">Ver projetos</a>
                 </div>
             </div>
+        </section>
 
-        </div>
-
-        <br>
-
-        <div id="certificacoes" class="certificacoes">
-
-    <h1 class="titulo-certificacoes">Certificações</h1>
-
-    <div class="timeline">
-
-        <div class="certificado">
-            <div class="linha"></div>
-
-            <div class="conteudo-certificado">
-                <span class="tag">5G</span>
-
-                <h2>Desvendando o 5G</h2>
-
-                <a href="assets/desvendando_o_5g.pdf" download class="btn" style="margin-right: 20px;">Ver Certificado</a>
+        <section id="habilidades" class="section-habilidades">
+            <div class="section-header">
+                <p class="eyebrow">Habilidades</p>
+                <h2>Onde eu entrego valor</h2>
             </div>
-        </div>
 
-        <div class="certificado">
-            <div class="linha"></div>
+            <div class="skills-grid">
 
-            <div class="conteudo-certificado">
-                <span class="tag">Industria 4.0</span>
+                <article class="skill-card">
+                    <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3>Desenvolvimento Web</h3>
+                    <ul>
+                        <li>HTML, CSS, JavaScript e PHP</li>
+                        <li>Interfaces modernas, responsivas e funcionais</li>
+                        <li>Interesse contínuo em Full Stack</li>
+                    </ul>
+                </article>
 
-                <h2>Desvendando a Indústria 4.0</h2>
+                <article class="skill-card">
+                    <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
+                    <h3>Banco de Dados</h3>
+                    <ul>
+                        <li>Conhecimento básico em MySQL</li>
+                        <li>Noções de manipulação e organização de dados</li>
+                    </ul>
+                </article>
 
-                <a href="assets/desvendando_a_industria_4.pdf" download class="btn" style="margin-right: 20px;">Ver Certificado</a>
+                <article class="skill-card">
+                    <div class="skill-icon"><i class="fa-solid fa-toolbox"></i></div>
+                    <h3>Ferramentas</h3>
+                    <ul>
+                        <li>Microsoft Word, Excel e PowerPoint</li>
+                        <li>Canva para conteúdos visuais e apresentações</li>
+                    </ul>
+                </article>
+
+                <article class="skill-card">
+                    <div class="skill-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>Perfil profissional</h3>
+                    <ul>
+                        <li>Rapidez e agilidade na digitação e escrita</li>
+                        <li>Facilidade de aprendizado e organização</li>
+                        <li>Criatividade no desenvolvimento de projetos</li>
+                    </ul>
+                </article>
+
             </div>
-        </div>
+        </section>
 
-        <div class="certificado">
-            <div class="linha"></div>
-
-            <div class="conteudo-certificado">
-                <span class="tag">LGPD</span>
-
-                <h2>Lei Geral de Proteção de Dados (LGPD)</h2>
-
-                <a href="assets/lgpd.pdf" download class="btn" style="margin-right: 20px;">Ver Certificado</a>
+        <section id="projetos" class="section-projetos">
+            <div class="section-header">
+                <p class="eyebrow">Projetos</p>
+                <h2>O que eu já construí</h2>
             </div>
-        </div>
 
-        <div class="certificado">
-            <div class="linha"></div>
+            <div class="projects-grid">
 
-            <div class="conteudo-certificado">
-                <span class="tag">Web 3.0</span>
+                <article class="project-card">
+                    <h3>Site de Certificado Digital</h3>
+                    <p>
+                        Site institucional para uma empresa de certificação digital, construído com HTML, CSS e
+                        JavaScript. Facilita o agendamento de criação e renovação de certificados: o usuário
+                        preenche os dados e a solicitação é enviada diretamente para o WhatsApp da empresa, já
+                        com uma mensagem pré-definida.
+                    </p>
+                    <div class="tech-tags">
+                        <span>html</span><span>css</span><span>javascript</span>
+                    </div>
+                    <a class="project-link" href="https://certificado-digital-rho.vercel.app/" target="_blank" rel="noopener">
+                        Acessar projeto <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </article>
 
-                <h2>Desvendando a Web 3.0</h2>
+                <article class="project-card">
+                    <h3>Mini Caseirinho — Loja Online</h3>
+                    <p>
+                        Site de vendas para uma loja de produtos caseiros. Permite navegar pelo catálogo,
+                        adicionar itens ao carrinho e finalizar a compra escolhendo forma de pagamento e de
+                        entrega — o pedido é enviado direto para o WhatsApp do vendedor com uma mensagem
+                        pré-definida.
+                    </p>
+                    <div class="tech-tags">
+                        <span>html</span><span>css</span><span>javascript</span>
+                    </div>
+                    <a class="project-link" href="https://mini-caseirinho.vercel.app/index.html" target="_blank" rel="noopener">
+                        Acessar projeto <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </article>
 
-                <a href="assets/web_3.0.pdf" download class="btn" style="margin-right: 20px;">Ver Certificado</a>
             </div>
-        </div>
+        </section>
 
-        <div class="certificado">
-            <div class="linha"></div>
-
-            <div class="conteudo-certificado">
-                <span class="tag">ESG</span>
-
-                <h2>Desvendando o ESG</h2>
-
-                <a href="assets/desvendando_o_esg.pdf" download class="btn" style="margin-right: 20px;">Ver Certificado</a>
+        <section id="certificacoes" class="section-certificacoes">
+            <div class="section-header">
+                <p class="eyebrow">Certificações</p>
+                <h2>Cursos e formações</h2>
             </div>
-        </div>
 
-        <div class="certificado">
-            <div class="linha"></div>
+            <div class="cert-grid">
 
-            <div class="conteudo-certificado">
-                <span class="tag">Fundamentos de IA</span>
+                <article class="cert-card">
+                    <span class="tag">5G</span>
+                    <h3>Desvendando o 5G</h3>
+                    <a href="assets/desvendando_o_5g.pdf" download class="cert-link">Ver certificado <i class="fa-solid fa-arrow-down"></i></a>
+                </article>
 
-                <h2>Fundamentos de Inteligência Artificial</h2>
+                <article class="cert-card">
+                    <span class="tag">Indústria 4.0</span>
+                    <h3>Desvendando a Indústria 4.0</h3>
+                    <a href="assets/desvendando_a_industria_4.pdf" download class="cert-link">Ver certificado <i class="fa-solid fa-arrow-down"></i></a>
+                </article>
 
-                <a href="assets/fundamentos_ia.pdf" download class="btn" style="margin-right: 20px;">Ver Certificado</a>
+                <article class="cert-card">
+                    <span class="tag">LGPD</span>
+                    <h3>Lei Geral de Proteção de Dados</h3>
+                    <a href="assets/lgpd.pdf" download class="cert-link">Ver certificado <i class="fa-solid fa-arrow-down"></i></a>
+                </article>
+
+                <article class="cert-card">
+                    <span class="tag">Web 3.0</span>
+                    <h3>Desvendando a Web 3.0</h3>
+                    <a href="assets/web_3.0.pdf" download class="cert-link">Ver certificado <i class="fa-solid fa-arrow-down"></i></a>
+                </article>
+
+                <article class="cert-card">
+                    <span class="tag">ESG</span>
+                    <h3>Desvendando o ESG</h3>
+                    <a href="assets/desvendando_o_esg.pdf" download class="cert-link">Ver certificado <i class="fa-solid fa-arrow-down"></i></a>
+                </article>
+
+                <article class="cert-card">
+                    <span class="tag">Inteligência Artificial</span>
+                    <h3>Fundamentos de Inteligência Artificial</h3>
+                    <a href="assets/fundamentos_ia.pdf" download class="cert-link">Ver certificado <i class="fa-solid fa-arrow-down"></i></a>
+                </article>
+
+                <article class="cert-card">
+                    <span class="tag">Empreendedorismo</span>
+                    <h3>Empreender no SENAI</h3>
+                    <a href="assets/emprender_senai.pdf" download class="cert-link">Ver certificado <i class="fa-solid fa-arrow-down"></i></a>
+                </article>
+
+                <article class="cert-card">
+                    <span class="tag">Segurança</span>
+                    <h3>Segurança no Trabalho</h3>
+                    <a href="assets/seguranca_no_trabalho.pdf" download class="cert-link">Ver certificado <i class="fa-solid fa-arrow-down"></i></a>
+                </article>
+
+                <article class="cert-card">
+                    <span class="tag">Sustentabilidade</span>
+                    <h3>Economia Circular</h3>
+                    <a href="assets/economia_circular.pdf" download class="cert-link">Ver certificado <i class="fa-solid fa-arrow-down"></i></a>
+                </article>
+
             </div>
-        </div>
+        </section>
 
-        <div class="certificado">
-            <div class="linha"></div>
-
-            <div class="conteudo-certificado">
-                <span class="tag">Empreender no SENAI</span>
-
-                <h2>Empreender no SENAI</h2>
-
-                <a href="assets/emprender_senai.pdf" download class="btn" style="margin-right: 20px;">Ver Certificado</a>
-            </div>
-        </div>
-
-        <div class="certificado">
-            <div class="linha"></div>
-
-            <div class="conteudo-certificado">
-                <span class="tag">Segurança no Trabalho</span>
-
-                <h2>Segurança no Trabalho</h2>
-
-                <a href="assets/seguranca_no_trabalho.pdf" download class="btn" style="margin-right: 20px;">Ver Certificado</a>
-            </div>
-        </div>
-
-        <div class="certificado">
-            <div class="linha"></div>
-
-            <div class="conteudo-certificado">
-                <span class="tag">Economia Circular</span>
-
-                <h2>Economia Circular</h2>
-
-                <a href="assets/economia_circular.pdf" download class="btn" style="margin-right: 20px;">Ver Certificado</a>
-            </div>
-        </div>
-
-    </div>
-
-</div>
     </main>
 
-    <br>
-
     <footer id="contato" class="footer">
+        <h2>Vamos conversar?</h2>
+        <p class="footer-text">Estou aberta a propostas de estágio, projetos freelance e novas oportunidades.</p>
 
-    <h2>Contato</h2>
+        <div class="icones-contato">
+            <a href="mailto:mellbs1409@gmail.com" class="icone-card" title="E-mail">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/mell-scabio-a323b62b7" target="_blank" rel="noopener" class="icone-card" title="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/Mellbs" target="_blank" rel="noopener" class="icone-card" title="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://wa.me/5519996731765" target="_blank" rel="noopener" class="icone-card" title="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </div>
 
-    <div class="icones-contato">
+        <p class="copyright">© 2026 — Desenvolvido por Mell Baptista Scabio</p>
+    </footer>
 
-        <a 
-            href="mailto:mellbs1409@gmail.com"
-            class="icone-card"
-            title="Email"
-        >
-            <i class="fa-solid fa-envelope"></i>
-        </a>
+    <script>
+        // Menu mobile
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
 
-        <a 
-            href="https://www.linkedin.com/in/mell-scabio-a323b62b7"
-            target="_blank"
-            class="icone-card"
-            title="LinkedIn"
-        >
-            <i class="fa-brands fa-linkedin-in"></i>
-        </a>
+        navToggle.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('open');
+            navToggle.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
 
-        <a 
-            href="https://github.com/Mellbs"
-            target="_blank"
-            class="icone-card"
-            title="GitHub"
-        >
-            <i class="fa-brands fa-github"></i>
-        </a>
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                navToggle.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', false);
+            });
+        });
 
-        <a 
-            href="https://wa.me/5519996731765"
-            target="_blank"
-            class="icone-card"
-            title="WhatsApp"
-        >
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
+        // Destaca o link do menu conforme a seção visível
+        const sections = document.querySelectorAll('main section, footer');
+        const navLinks = document.querySelectorAll('nav a');
 
-    </div>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                    });
+                }
+            });
+        }, { rootMargin: '-40% 0px -50% 0px' });
 
-    <p class="copyright">
-        © 2026 - Desenvolvido por Mell Baptista Scabio
-    </p>
-
-</footer>
+        sections.forEach(section => observer.observe(section));
+    </script>
 
 </body>
 
